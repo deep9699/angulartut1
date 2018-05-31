@@ -8,6 +8,7 @@ import { CalcComponent } from './calc/calc.component';
 import { ArrdemoComponent } from './arrdemo/arrdemo.component';
 import { TodoComponent } from './todo/todo.component';
 import { ProductComponent } from './product/product.component';
+import { XyzComponent } from './xyz/xyz.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { ProductComponent } from './product/product.component';
     CalcComponent,
     ArrdemoComponent,
     TodoComponent,
-    ProductComponent
+    ProductComponent,
+    XyzComponent
   ],
   imports: [
     BrowserModule,
