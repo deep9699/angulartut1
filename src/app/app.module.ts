@@ -9,6 +9,7 @@ import { ArrdemoComponent } from './arrdemo/arrdemo.component';
 import { TodoComponent } from './todo/todo.component';
 import { ProductComponent } from './product/product.component';
 import { XyzComponent } from './xyz/xyz.component';
+import { BootstrapdemoComponent } from './bootstrapdemo/bootstrapdemo.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { XyzComponent } from './xyz/xyz.component';
     ArrdemoComponent,
     TodoComponent,
     ProductComponent,
-    XyzComponent
+    XyzComponent,
+    BootstrapdemoComponent
   ],
   imports: [
     BrowserModule,
