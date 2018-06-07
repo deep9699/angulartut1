@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from "@angular/common/http";
 
 import { AppComponent } from './app.component';
 import { DemoComponent } from './demo/demo.component';
@@ -10,6 +11,7 @@ import { TodoComponent } from './todo/todo.component';
 import { ProductComponent } from './product/product.component';
 import { XyzComponent } from './xyz/xyz.component';
 import { BootstrapdemoComponent } from './bootstrapdemo/bootstrapdemo.component';
+import { StudentComponent } from './student/student.component';
 
 @NgModule({
   declarations: [
@@ -19,12 +21,14 @@ import { BootstrapdemoComponent } from './bootstrapdemo/bootstrapdemo.component'
     ArrdemoComponent,
     TodoComponent,
     ProductComponent,
+    StudentComponent,
     XyzComponent,
     BootstrapdemoComponent
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

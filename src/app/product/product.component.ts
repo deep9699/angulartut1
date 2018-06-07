@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { product } from './product';
+import { ProductService } from '../product.service';
 
 @Component({
   selector: 'app-product',
@@ -8,12 +9,8 @@ import { product } from './product';
 })
 export class ProductComponent implements OnInit {
 
-  arr:product[]=[
-    new product(1,'Mobile',15000,50,'available','../../assets/images/1.png'),
-    new product(2,'Tv',50000,5,'available','../../assets/images/1.png'),
-    new product(3,'laptop',40000,15,'available','../../assets/images/1.png')
-  ]
-  q
+  arr:product[]=[];
+  q;
   flag:boolean=false;
   sta:string[]=[
     'available',
@@ -36,7 +33,7 @@ export class ProductComponent implements OnInit {
     {
       this.sts1="available";
     }
-   this.arr.push(new product(this.id1,this.name1,this.price1,this.quantity1,this.sts1))
+  //  this.arr.push(new product(this.id1,this.name1,this.price1,this.quantity1,this.sts1))
    this.flag=false;
   }
 
@@ -58,21 +55,28 @@ export class ProductComponent implements OnInit {
   }
   onUp(item:product)
   {
-    this.q=parseInt(prompt('pls enter the updates Quantity'));
-    if(this.q<=0 || this.q=='ng NaN')
-    {
-        item.status="unavailable";
-        item.quantity=0;
-    }
-    else
-    {
-        item.status="available";
-        item.quantity=this.q;
-    }
+    // this.q=parseInt(prompt('pls enter the updates Quantity'));
+    // if(this.q<=0 || this.q=='NaN')
+    // {
+    //     item.status="unavailable";
+    //     item.quantity=0;
+    // }
+    // else
+    // {
+    //     item.status="available";
+    //     item.quantity=this.q;
+    // }
   }
-  constructor() { }
+  constructor(private _xyz:ProductService) { }
 
   ngOnInit() {
+    this._xyz.getAllProduct().subscribe(
+      (data:product[])=>{
+        this.arr=data
+        console.log(this.arr);
+        
+      }
+    );
   }
 
 }

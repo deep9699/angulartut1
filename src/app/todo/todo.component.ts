@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Task } from './Task';
-
+import { TodoService } from '../todo.service';
 @Component({
   selector: 'app-todo',
   templateUrl: './todo.component.html',
@@ -12,11 +12,7 @@ export class TodoComponent implements OnInit {
     'done',
     'pending'
   ];
-arr:Task[]=[
-  new Task(1,'email to manager','pending'),
-  new Task(2,'push to github','pending'),
-  new Task(3,'go to movie','done')
-]
+arr:Task[]=[];
 
 onAdd(x,y,z){
 this.arr.push(new Task(x,y,z));
@@ -34,9 +30,15 @@ this.arr.push(new Task(x,y,z));
       item.Status='done';
     }
   }
-  constructor() { }
+  constructor(private _xyz:TodoService) { }
 
   ngOnInit() {
+
+    this._xyz.getAllTask().subscribe(
+      (data:Task[])=>{
+        this.arr=data;
+      }
+    );
   }
 
 }
