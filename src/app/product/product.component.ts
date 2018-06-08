@@ -22,6 +22,7 @@ export class ProductComponent implements OnInit {
   price1:number;
   quantity1:number;
   sts1:string;
+  pimg:string;
 
   onclickAdd()
   {
@@ -33,10 +34,24 @@ export class ProductComponent implements OnInit {
     {
       this.sts1="available";
     }
-  //  this.arr.push(new product(this.id1,this.name1,this.price1,this.quantity1,this.sts1))
+    this._xyz.addProduct(new product(this.id1,this.name1,this.price1,this.quantity1,this.sts1,this.pimg)).subscribe(
+      (data:any)=>{
+        this.arr.push(new product(this.id1,this.name1,this.price1,this.quantity1,this.sts1,this.pimg));
+      }
+    );
+
+  
+    
    this.flag=false;
   }
 
+  onDelete(item:product){
+this._xyz.deleteProduct(item).subscribe(
+  (data:any)=>{
+    this.arr.splice(this.arr.indexOf(item),1);
+  }
+);
+  }
 
   onDel(index)
   {

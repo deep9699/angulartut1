@@ -76,7 +76,12 @@ onclickAdd()
   {
     this.res='fail';
   }
-  this.arr.push(new stu(this.id,this.name,this.per,this.res));
+  this._xyz.addStudent(new stu(this.id,this.name,this.per,this.res)).subscribe(
+    (data:any)=>{
+      this.arr.push(new stu(this.id,this.name,this.per,this.res));
+    }
+  );
+  
   this.flag=false;
   this.flaga=false;
 }

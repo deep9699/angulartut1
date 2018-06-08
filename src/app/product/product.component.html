@@ -27,6 +27,9 @@
           <option *ngFor="let item of sta" >{{item}}</option>
         </select>
     </div>
+    <div class="form-group">
+      <h4>Image:</h4> <input class="form-control" type="number" [(ngModel)]="pimg">
+  </div>
     <div class="row">
         <div class="col-md-6">
                 <button class="btn btn-lg btn-primary form-control" (click)="onclickAdd()" >ADD</button>
@@ -59,7 +62,6 @@
       </div>
       <div class="col-md-8">
         <div class="row">
-          
           <div *ngFor="let item of arr" class="col-sm-6 col-md-4">
             <div class="thumbnail">
               <img src="{{item.p_img}}" alt="..." height="200px" width="200px" >
@@ -68,7 +70,7 @@
                 <p>{{item.p_price}}</p>
                 <p>{{item.p_quantity}}</p>
                 <p>
-                    <a href="#" class="btn btn-primary" role="button">Button</a> 
+                    <a  (click)="onDelete(item)" class="btn btn-primary" role="button">Button</a> 
                     <a href="#" class="btn btn-default" role="button">Button</a>
                 </p>
               </div>

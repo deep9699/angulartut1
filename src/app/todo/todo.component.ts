@@ -15,12 +15,23 @@ export class TodoComponent implements OnInit {
 arr:Task[]=[];
 
 onAdd(x,y,z){
-this.arr.push(new Task(x,y,z));
+
+this._xyz.addTask(new Task(x,y,z)).subscribe(
+  (data:any)=>{
+    this.arr.push(new Task(x,y,z));
+  }
+);
+
 }
   onDelete(i){
 
-    this.arr.splice(i,1);
-    //this.arr.splice(this.arr.indexOf(item),1);
+    this._xyz.deleteTask(i).subscribe(
+      (data:any)=>{
+        this.arr.splice(this.arr.indexOf(i),1);
+      }
+    );
+    // this.arr.splice(i,1);
+    
   }
   onUpdate(item:Task){
     if(item.Status=='done'){

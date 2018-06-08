@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient,HttpHeaders } from '@angular/common/http';
+import { stu } from './student/stu';
 @Injectable({
   providedIn: 'root'
 })
@@ -11,5 +12,10 @@ export class StudentService {
   }
   getAllStudent(){
     return this._http.get(this.url);
+  }
+  addStudent(item:stu){
+    let body=JSON.stringify(item);
+    let head1=new HttpHeaders().set('Content-Type','application/json');
+    return this._http.post(this.url,body,{headers:head1});
   }
 }
