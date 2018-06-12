@@ -18,4 +18,9 @@ export class StudentService {
     let head1=new HttpHeaders().set('Content-Type','application/json');
     return this._http.post(this.url,body,{headers:head1});
   }
+  deleteStudent(item:number){
+    let head1=new HttpHeaders().set('Content-Type','application/json');
+    item=item+1;
+    return this._http.delete(this.url+item,{headers:head1});
+  }
 }

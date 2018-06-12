@@ -20,8 +20,12 @@ flagu:boolean;
 onDel()
 {
   this.d=parseInt(prompt('pls enter index of list of student (0 based index)'));
+  this._xyz.deleteStudent(this.d).subscribe(
+    (data:any)=>{
+      this.arr.splice(this.d,1);
+    }
+  );
   
-  this.arr.splice(this.d,1);
 }
 onUp()
 {

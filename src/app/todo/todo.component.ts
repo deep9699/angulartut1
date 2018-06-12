@@ -18,6 +18,7 @@ onAdd(x,y,z){
 
 this._xyz.addTask(new Task(x,y,z)).subscribe(
   (data:any)=>{
+    console.log(data);
     this.arr.push(new Task(x,y,z));
   }
 );
@@ -34,12 +35,18 @@ this._xyz.addTask(new Task(x,y,z)).subscribe(
     
   }
   onUpdate(item:Task){
-    if(item.Status=='done'){
-      item.Status='pending';
-    }
-    else{
-      item.Status='done';
-    }
+    
+    this._xyz.updateTask(item).subscribe(
+      (data:any)=>{
+        if(item.Status=='done'){
+          item.Status='pending';
+        }
+        else{
+          item.Status='done';
+        }    
+      }
+    )
+
   }
   constructor(private _xyz:TodoService) { }
 
