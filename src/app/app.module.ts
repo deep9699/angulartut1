@@ -14,6 +14,8 @@ import { XyzComponent } from './xyz/xyz.component';
 import { BootstrapdemoComponent } from './bootstrapdemo/bootstrapdemo.component';
 import { StudentComponent } from './student/student.component';
 import { HeaderComponent } from './header.component';
+import { EdittodoComponent } from './todo/edittodo/edittodo.component';
+import { EditproductComponent } from './product/editproduct/editproduct.component';
 
 
 @NgModule({
@@ -27,7 +29,9 @@ import { HeaderComponent } from './header.component';
     StudentComponent,
     XyzComponent,
     BootstrapdemoComponent,
-    HeaderComponent
+    HeaderComponent,
+    EdittodoComponent,
+    EditproductComponent
   ],
   imports: [
     BrowserModule,

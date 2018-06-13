@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { product } from './product';
 import { ProductService } from '../product.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-product',
@@ -70,19 +71,9 @@ this._xyz.deleteProduct(item).subscribe(
   }
   onUp(item:product)
   {
-    // this.q=parseInt(prompt('pls enter the updates Quantity'));
-    // if(this.q<=0 || this.q=='NaN')
-    // {
-    //     item.status="unavailable";
-    //     item.quantity=0;
-    // }
-    // else
-    // {
-    //     item.status="available";
-    //     item.quantity=this.q;
-    // }
+    this._route.navigate(['/editproduct',item.p_id]);
   }
-  constructor(private _xyz:ProductService) { }
+  constructor(private _route:Router,private _xyz:ProductService) { }
 
   ngOnInit() {
     this._xyz.getAllProduct().subscribe(

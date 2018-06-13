@@ -13,6 +13,9 @@ export class TodoService {
   getAllTask(){
     return this._http.get(this.url);
   }
+  getTaskById(id:number){
+    return this._http.get(this.url+id);
+  }
   addTask(item:Task){
     let body=JSON.stringify(item);
     let head1=new HttpHeaders().set('Content-Type','application/json');

@@ -12,10 +12,19 @@ export class ProductService {
   getAllProduct(){
     return this._http.get(this.url);
   }
+  getProductById(id:number){
+    return this._http.get(this.url+id);
+  }
   addProduct(item:product){
     let _abc=new HttpHeaders().set('Content-Type','application/json');
     let body=JSON.stringify(item);
     return this._http.post(this.url,body,{headers:_abc});
+
+  }
+  updateProduct(item:product){
+    let _abc=new HttpHeaders().set('Content-Type','application/json');
+    let body=JSON.stringify(item);
+    return this._http.put(this.url+item.p_id,body,{headers:_abc});
 
   }
   deleteProduct(item:product){

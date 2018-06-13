@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Task } from './Task';
+
 import { TodoService } from '../todo.service';
 @Component({
   selector: 'app-todo',
@@ -34,6 +36,10 @@ this._xyz.addTask(new Task(x,y,z)).subscribe(
     // this.arr.splice(i,1);
     
   }
+  onEdit(item:Task){
+    this._abc.navigate(['/edittodo',item.Id]);
+
+  }
   onUpdate(item:Task){
     
     this._xyz.updateTask(item).subscribe(
@@ -48,7 +54,7 @@ this._xyz.addTask(new Task(x,y,z)).subscribe(
     )
 
   }
-  constructor(private _xyz:TodoService) { }
+  constructor(private _xyz:TodoService,private _abc:Router) { }
 
   ngOnInit() {
 
